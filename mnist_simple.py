@@ -12,7 +12,7 @@ Problem dimensions
 batch_size = 100
 
 # Number of images to train
-num_images = 784
+num_pixels = 784
 
 # Number of labels
 num_labels = 10
@@ -28,7 +28,7 @@ Random values
 """
 
 # Random values with weight matrix dimensions, with standard deviation 0.1
-random_matrix = tf.random_normal([num_images, num_labels], stddev=0.1)
+random_matrix = tf.random_normal([num_pixels, num_labels], stddev=0.1)
 
 # Random values for logit vector
 random_logit = tf.random_normal([num_labels], stddev=0.1)
@@ -47,7 +47,7 @@ Placeholders
 """
 
 # Image placeholder (batch x images)
-image = tf.placeholder(tf.float32, [batch_size, num_images])
+image = tf.placeholder(tf.float32, [batch_size, num_pixels])
 
 # Output matrix from batch (batches x labels) - each row a one-hot vector
 batch_output = tf.placeholder(tf.float32, [batch_size, num_labels])

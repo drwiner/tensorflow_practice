@@ -11,8 +11,8 @@ Problem dimensions
 # Size of batch
 batch_size = 100
 
-# Number of images to train
-num_images = 784
+# Number of pixels in image
+num_pixels = 784
 
 # Number of labels
 num_labels = 10
@@ -28,13 +28,13 @@ Random values
 """
 
 # random for U
-r_U = tf.random_normal([num_images, num_images], stddev=0.1)
+r_U = tf.random_normal([num_pixels, num_pixels], stddev=0.1)
 
 # random for V
-r_V = tf.random_normal([num_images, num_labels], stddev=0.1)
+r_V = tf.random_normal([num_pixels, num_labels], stddev=0.1)
 
 # random for bU
-r_bU = tf.random_normal([num_images], stddev=0.1)
+r_bU = tf.random_normal([num_pixels], stddev=0.1)
 
 # random for bV
 r_bV = tf.random_normal([num_labels], stddev=0.1)
@@ -56,7 +56,7 @@ Input Output
 """
 
 # Image placeholder (batch x images)
-image = tf.placeholder(tf.float32, [batch_size, num_images])
+image = tf.placeholder(tf.float32, [batch_size, num_pixels])
 
 # Output matrix from batch (batches x labels) - each row a one-hot vector
 batch_output = tf.placeholder(tf.float32, [batch_size, num_labels])
